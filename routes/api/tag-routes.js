@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { TableHints } = require('sequelize/types');
 const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
@@ -30,27 +31,49 @@ router.get('/:id', (req, res) => {
   }
 });
 
+// create a new tag
 router.post('/', (req, res) => {
-  // create a new tag
+  Tag.create(req.body)
+    .then((newTag) => {
+      res.json(newTag);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 // update a tag's name by its `id` value
 router.put('/:id', (req, res) => {
-  Tag.update(req.body), {
-    where: {
-      id: req.params.id,
+  Tag.update(
+    {
+      tag_name: req.body.tag_name,
     },
-  }
-    .then((tag) => {
-      return Tag.findAll({ where: { tag_id: req.params.id } });
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((updateTag) => {
+      res.json(updateTag);
     })
-    .then(() => {
-      const tag
-    })
+    .catch((err) => {
+      console.log(err);
+      res.json(err);
+    });
 });
 
+// delete on tag by its `id` value
 router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+  Tag.destroy({
+    where: {
+      tag_id: req.params.tag_id,
+    },
+  })
+    .then((deleteTag) => {
+      res.json(deleteTag);
+    })
+    .catch((err) => res.json(err));
 });
 
 module.exports = router;
