@@ -40,13 +40,13 @@ router.put('/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-  })
-  .then((tag) => {
-    return Tag.findAll({ where: { tag_id: req.params.id } });
-  })
-  .then(() => {
-    const tag
-  })
+  }
+    .then((tag) => {
+      return Tag.findAll({ where: { tag_id: req.params.id } });
+    })
+    .then(() => {
+      const tag
+    })
 });
 
 router.delete('/:id', (req, res) => {
