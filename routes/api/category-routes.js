@@ -25,20 +25,21 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Category.findByPk(req.params.id, {
     include: [{ model: Product }],
-    attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+    // attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
   })
-})
-  .then(data => {
-    if (!data) {
-      res.status(404).json({ message: 'No category found with that id.' });
-      return;
-    }
-    res.status(200).json(data);
-  })
-  .catch((err) => {
-    console.log(err);
-    res.json(err);
-  });
+
+    .then(data => {
+      if (!data) {
+        res.status(404).json({ message: 'No category found with that id.' });
+        return;
+      }
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json(err);
+    })
+});
 
 // create a new category
 router.post('/', (req, res) => {
