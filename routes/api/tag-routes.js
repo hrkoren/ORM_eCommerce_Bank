@@ -7,7 +7,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const tagData = await Tag.findAll({
-      include: [{ model: Tag, Product }],
+      include: [{ model: Product }],
     });
     res.status(200).json(tagData);
   } catch (err) {
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const tagData = await Tag.findByPk(req.params.id, {
-      include: [{ model: Tag, Product }],
+      include: [{ model: Product }],
     });
     if (!tagData) {
       res.status(404).json({ message: 'No tag found with that id.' });
@@ -38,6 +38,7 @@ router.post('/', (req, res) => {
       res.json(newTag);
     })
     .catch((err) => {
+      console.log(err);
       res.json(err);
     });
 });
@@ -54,8 +55,8 @@ router.put('/:id', (req, res) => {
       },
     }
   )
-    .then((updateTag) => {
-      res.json(updateTag);
+    .then((data) => {
+      res.json(data);
     })
     .catch((err) => {
       console.log(err);
@@ -73,7 +74,10 @@ router.delete('/:id', (req, res) => {
     .then((deleteTag) => {
       res.json(deleteTag);
     })
-    .catch((err) => res.json(err));
+    .catch((err) => {
+      console.log(err);
+      res.json(err);
+    });
 });
 
 module.exports = router;
