@@ -37,9 +37,10 @@ In order to use the E-Commerce Bank application, you will need to follow the fol
 ## Usage
 
 This program can be used with permission.
-![animated gif](.assets/eCommerce.gif)
+<video width="320" height="240" controls>
 
-<video></video>
+  <source src="./Images/ORM_eCommerce1.mp4" type="video/mp4">
+</video>
 
 ---
 
