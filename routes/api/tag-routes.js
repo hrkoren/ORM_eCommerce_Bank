@@ -68,11 +68,11 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   Tag.destroy({
     where: {
-      tag_id: req.params.tag_id,
+      id: req.params.id,
     },
   })
-    .then((deleteTag) => {
-      res.json(deleteTag);
+    .then((data) => {
+      res.json(data);
     })
     .catch((err) => {
       console.log(err);
