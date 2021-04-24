@@ -25,9 +25,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Category.findByPk(req.params.id, {
     include: [{ model: Product }],
-    // attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
   })
-
     .then(data => {
       if (!data) {
         res.status(404).json({ message: 'No category found with that id.' });
@@ -38,7 +36,7 @@ router.get('/:id', (req, res) => {
     .catch((err) => {
       console.log(err);
       res.json(err);
-    })
+    });
 });
 
 // create a new category

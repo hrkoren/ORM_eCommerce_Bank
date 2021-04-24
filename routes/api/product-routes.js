@@ -56,16 +56,14 @@ router.post('/', (req, res) => {
       // if no product tags, just respond
       res.status(200).json(product);
     })
-    .then(data => {
-      res.json(data);
-    })
+    .then((productTagIds) => res.status(200).json(productTagIds))
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
     });
 });
 
-// update product
+// update product by its id value
 router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
@@ -73,7 +71,7 @@ router.put('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-    .then((data) => {
+    .then((product) => {
       // find all associated tags from ProductTag
       return ProductTag.findAll({ where: { product_id: req.params.id } });
     })
