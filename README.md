@@ -37,10 +37,7 @@ In order to use the E-Commerce Bank application, you will need to follow the fol
 ## Usage
 
 This program can be used with permission.
-<video width="320" height="240" controls>
-
-  <source src="./assets/ORM_eCommerce1.mp4" type="video/mp4">
-</video>
+![Walkthrough_Video](.assets/ORM_eCommerce1/MP4)
 
 ---
 
