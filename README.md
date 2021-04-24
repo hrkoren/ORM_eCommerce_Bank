@@ -37,7 +37,7 @@ In order to use the E-Commerce Bank application, you will need to follow the fol
 ## Usage
 
 This program can be used with permission.
-![Walkthrough_Video](.assets/ORM_eCommerce1/MP4)
+![Walkthrough_Video](.assets/ORM_eCommerce1.mp4)
 
 ---
 
