@@ -8,8 +8,8 @@ ORM E-Commerce Back End development project using Express, MySQL, and Sequelize
 
 The E-Commerce Bank allows the user to search for, update, create, and delete products, categories, and tags.
 
-![screenshot1](.assets/screenshot1.PNG)\
-![screenshot2](.assets/screenshot2.PNG)
+![screenshot1](./assets/screenshot1.PNG)\
+![screenshot2](./assets/screenshot2.PNG)
 
 ---
 
@@ -39,7 +39,7 @@ In order to use the E-Commerce Bank application, you will need to follow the fol
 This program can be used with permission.
 <video width="320" height="240" controls>
 
-  <source src="./Images/ORM_eCommerce1.mp4" type="video/mp4">
+  <source src="./assets/ORM_eCommerce1.mp4" type="video/mp4">
 </video>
 
 ---
